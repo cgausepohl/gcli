@@ -15,6 +15,7 @@ public class Parameter {
 	private boolean hideValue = false, parsed = false, treatArgumentAsList = false;
 	private Long min, max;
 	private char listSeparator = ',';
+	private ArrayList<String> validValues = new ArrayList<>();
 
 	Parameter(String parameterLong, String parameterShort, boolean isMandatory, boolean expectsArguments) {
 		this.name = parameterLong;
@@ -26,6 +27,16 @@ public class Parameter {
 	public Parameter setMinValue(long min) {
 		this.min = min;
 		return this;
+	}
+	
+	public Parameter setValidValues(String... validValues) {
+		for (String value: validValues)
+			this.validValues.add(value);
+		return this;
+	}
+	
+	public ArrayList<String> getValidValues() {
+		return validValues;
 	}
 
 	public Parameter treatArgumentAsList() {

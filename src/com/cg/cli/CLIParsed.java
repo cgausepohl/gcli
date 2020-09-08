@@ -69,9 +69,29 @@ public class CLIParsed {
 						throw new CLIParsedException("Argument " + l + " for parameter " + p.getName()
 								+ " is greater than maxValue " + p.getMinValue());
 				}
+				//check valid values
+				if (p.getValidValues().size()>0) {
+					boolean ok = false;
+					for (String s: p.getValidValues())
+						if (s!=null && s.equals(p.getArgument()))
+							ok = true;
+					if (!ok) {
+						StringBuffer sb = new StringBuffer(100);
+						boolean first = true;
+						for (String s: p.getValidValues())
+							sb.append(first!=true?",":"").append(s);
+						throw new CLIParsedException("Argument " + l + " for parameter " + p.getName()
+						+ " is not a valid value, valid values are=" + sb.toString());
+					}
+				}
 			}
 		}
-
+	}
+	
+	public Integer getIntegerArgument(String parameter) {
+		String s = getArgument(parameter);
+		if (s==null) return null;
+		return Integer.parseInt(s);
 	}
 
 	public String getArgument(String parameter) {

@@ -54,7 +54,7 @@ public class Example {
 	}
 
 	public static void main(String[] args) {
-
+		
 		ArrayList<String[]> argsExamples = new ArrayList<>();
 
 		// java com.binrock.cli.Example --jdbc jdbc:oracle:thin:@localhost:1521/xe

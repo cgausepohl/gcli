@@ -135,10 +135,6 @@ public class CLIRules {
 						System.out.print("|-" + p.getAbbreviation());
 						l += 2;
 					}
-					if (!p.isMandatory())
-						System.out.print("]");
-					if (!p.isMandatory())
-						l += 2;
 
 					if (p.isArgumentList()) {
 						l += argListPattern.length();
@@ -161,6 +157,10 @@ public class CLIRules {
 						String s = " <arg>";
 						l += s.length();
 						System.out.print(s);
+					}
+					if (!p.isMandatory()) {
+						System.out.print("]");
+						l += 2;
 					}
 
 					for (int j = 0; j < max - l; j++)
