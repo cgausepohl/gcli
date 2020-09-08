@@ -1,6 +1,7 @@
 /*
  * Author Christian Gausepohl
  * License: CC0 (no copyright if possible, otherwise fallback to public domain)
+ * https://github.com/cgausepohl/gcli
  */
 
 package com.cg.cli;
