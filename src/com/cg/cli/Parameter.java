@@ -7,7 +7,7 @@ package com.cg.cli;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-class Parameter {
+public class Parameter {
 
 	private final String name, abbreviation;
 	private String argument, default_, description;
